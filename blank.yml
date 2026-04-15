@@ -18,7 +18,12 @@ jobs:
         distribution: 'temurin'
 
     - name: Make gradlew executable
-      run: chmod +x gradlew
+   
+  run: chmod +x gradlew
+  - name: Clean and Build APK
+  run: |
+    chmod +x gradlew
+    ./gradlew clean assembleDebug --no-daemon --stacktrace
 
     - name: Build APK
       run: ./gradlew assembleDebug
