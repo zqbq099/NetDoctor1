@@ -18,15 +18,11 @@ jobs:
         distribution: 'temurin'
 
     - name: Make gradlew executable
-   
-  run: chmod +x gradlew
-  - name: Clean and Build APK
-  run: |
-    chmod +x gradlew
-    ./gradlew clean assembleDebug --no-daemon --stacktrace
+      run: chmod +x gradlew
 
-    - name: Build APK
-      run: ./gradlew assembleDebug
+    - name: Clean and Build APK
+      run: |
+        ./gradlew clean assembleDebug --no-daemon --stacktrace
 
     - name: Upload APK
       uses: actions/upload-artifact@v4
